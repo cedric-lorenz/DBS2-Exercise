@@ -21,13 +21,12 @@ class TPMMSKotlin(
         Therefore, we have 2 * n I/O operations.
         Finally, in phase II, we load fragments of the relation into memory,
         such that every block of the memory will have been read and loaded into memory once in order to incooperate it into the output.
-        The output which needs to be written again, therefore also contains n blocks.
-        For phase II, we hence need 2 * n I/O operations.
+        The output does not necessarily need to be written to disk. If it is not, we hence need only 1 * n I/O operations.
 
-        Overall, we therefore receive an estimated amount of 4 * n I/O operations.
+        Overall, we therefore receive an estimated amount of 3 * n I/O operations.
          */
 
-        return 4 * relation.estimatedSize
+        return 3 * relation.estimatedSize
     }
 
     override fun sort(relation: Relation, output: BlockOutput) {
