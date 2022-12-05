@@ -62,6 +62,7 @@ tasks {
     listOf(
         "exercise0",
         "exercise1",
+        "exercise2",
     ).forEach { exerciseDescriptor ->
         register<Zip>("pack${exerciseDescriptor.capitalized()}") {
             archiveFileName.set("group$groupIdentifier-$exerciseDescriptor.zip")
